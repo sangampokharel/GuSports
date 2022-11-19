@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gusports.R
-import com.example.gusports.ui.models.Players
+import com.example.gusports.models.Players
 import kotlinx.android.synthetic.main.players_item_row.view.*
 
 class PlayersAdapters:RecyclerView.Adapter<PlayersAdapters.MyViewHolder>() {

@@ -1,3 +1,3 @@
-package com.example.gusports.ui.models
+package com.example.gusports.models
 
 data class Team (val teamLogo:String,val teamName:String)

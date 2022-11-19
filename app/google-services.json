@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904839639031",
+    "project_id": "gusports",
+    "storage_bucket": "gusports.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904839639031:android:f2d12c476136e7179d88f2",
+        "android_client_info": {
+          "package_name": "com.example.gusports"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904839639031-krpn3e566cp1p6d0seqt43f8u73ak2oj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvToCbpQiDCEDYuCCu1BD7LO_Wzurbyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904839639031-krpn3e566cp1p6d0seqt43f8u73ak2oj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

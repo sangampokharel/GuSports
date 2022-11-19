@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gusports.R
 import com.example.gusports.ui.adapters.PlayersAdapters
-import com.example.gusports.ui.models.Players
+import com.example.gusports.models.Players
 
 
 class PlayersFragment : Fragment() {

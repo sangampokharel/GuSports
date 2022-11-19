@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gusports.R
-import com.example.gusports.ui.models.DateMatches
+import com.example.gusports.models.DateMatches
 import kotlinx.android.synthetic.main.match_section_item_row.view.*
 
 class MatchSectionAdapters:RecyclerView.Adapter<MatchSectionAdapters.MyViewHolder>() {
@@ -32,12 +32,13 @@ class MatchSectionAdapters:RecyclerView.Adapter<MatchSectionAdapters.MyViewHolde
 
         holder.itemView.section_matches_rv.adapter = matchRowAdapters
         holder.itemView.section_matches_rv.layoutManager = LinearLayoutManager(holder.itemView.context)
-        matchRowAdapters.setData(dateMatches[position].matches)
-        Log.d("DATE MATCHES",dateMatches[position].matches.size.toString())
+        matchRowAdapters.setData(dateMatches[position].matches!!)
+
     }
 
     fun setData(dateMatches: ArrayList<DateMatches>){
         this.dateMatches = dateMatches
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = dateMatches.size

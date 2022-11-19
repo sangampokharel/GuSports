@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gusports.R
-import com.example.gusports.ui.models.Matches
+import com.example.gusports.models.Matches
 import kotlinx.android.synthetic.main.matches_item_row.view.*
 
 class MatchRowAdapters:RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
 
-    private var matches = arrayListOf<Matches>()
+    private var matches = arrayListOf<Matches?>()
     inner class MyViewHolder(view:View):RecyclerView.ViewHolder(view){
 
     }
@@ -22,12 +22,12 @@ class MatchRowAdapters:RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = matches[position]
+        val item = matches[position]!!
         holder.itemView.home_team_name.text = item.homeTeamName
         holder.itemView.away_team_name.text = item.awayTeamName
         holder.itemView.contact_person.text = item.gameStatus
-        holder.itemView.home_winner_status.text = item.homeWinner
-        holder.itemView.away_winner_status.text = item.awayWinner
+//        holder.itemView.home_winner_status.text = item.homeWinner
+//        holder.itemView.away_winner_status.text = item.awayWinner
         holder.itemView.match_venue.text = "${item.venue},${item.contact} "
         holder.itemView.match_time.text = item.time
 
@@ -38,7 +38,7 @@ class MatchRowAdapters:RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
 
     }
 
-    fun setData(matches:ArrayList<Matches>){
+    fun setData(matches: ArrayList<Matches?>){
        this.matches = matches
     }
 

@@ -1,4 +1,4 @@
-package com.example.gusports.ui.models
+package com.example.gusports.models
 
 data class Players (
     val playerImageUrl:String,

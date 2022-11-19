@@ -3,136 +3,125 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
+    android:layout_height="150dp"
     android:layout_marginStart="10dp"
+    android:layout_marginTop="0dp"
     android:layout_marginEnd="10dp"
     android:layout_marginBottom="10dp"
-    android:elevation="8dp"
     android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:elevation="8dp">
 
     <ImageView
         android:id="@+id/home_team_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_team_name"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/home_team_name"
+        app:layout_constraintTop_toTopOf="@+id/home_team_name"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/away_team_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/home_team_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/home_team_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/away_team_name"
+        app:layout_constraintEnd_toStartOf="@+id/away_team_name"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/away_team_name"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView4"
         style="@style/AppSmallText"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="V/S"
+        android:textStyle="bold"
 
-        app:layout_constraintBottom_toBottomOf="@+id/home_team_logo"
-        app:layout_constraintEnd_toStartOf="@+id/away_team_logo"
-        app:layout_constraintStart_toEndOf="@+id/home_team_logo"
+        app:layout_constraintEnd_toEndOf="@+id/match_time"
+        app:layout_constraintStart_toStartOf="@+id/match_time"
         app:layout_constraintTop_toTopOf="@+id/home_team_logo" />
 
     <TextView
         android:id="@+id/match_time"
+        style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="2:00PM"
-        style="@style/AppSmallText"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/home_team_name"
+        style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
         android:text="Titan"
         android:textStyle="bold"
-        style="@style/AppSmallText"
-        app:layout_constraintEnd_toEndOf="@+id/home_team_logo"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="@+id/home_team_logo"
-        app:layout_constraintTop_toBottomOf="@+id/home_team_logo" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/away_team_name"
+        style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:text="Warriors"
-        style="@style/AppSmallText"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/away_team_logo"
-        app:layout_constraintStart_toStartOf="@+id/away_team_logo"
-        app:layout_constraintTop_toBottomOf="@+id/away_team_logo" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/contact_person"
         style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="running"
-        app:layout_constraintEnd_toEndOf="@+id/match_time"
-        app:layout_constraintStart_toStartOf="@+id/match_time"
-        app:layout_constraintTop_toBottomOf="@+id/match_time" />
+        app:layout_constraintBottom_toBottomOf="@+id/home_team_logo"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <TextView
-        android:id="@+id/home_winner_status"
-        style="@style/AppSmallText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/home_team_name"
-        app:layout_constraintStart_toStartOf="@+id/home_team_name"
-        app:layout_constraintTop_toBottomOf="@+id/home_team_name" />
+<!--    <TextView-->
+<!--        android:id="@+id/home_winner_status"-->
+<!--        style="@style/AppSmallText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView"-->
+<!--        android:visibility="gone"-->
+<!--        tools:layout_editor_absoluteX="40dp"-->
+<!--        tools:layout_editor_absoluteY="122dp" />-->
 
-    <TextView
-        android:id="@+id/away_winner_status"
-        style="@style/AppSmallText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/home_winner_status"
-        app:layout_constraintEnd_toEndOf="@+id/away_team_name"
-        app:layout_constraintStart_toStartOf="@+id/away_team_name"
-        app:layout_constraintTop_toBottomOf="@+id/away_team_name" />
+<!--    <TextView-->
+<!--        android:id="@+id/away_winner_status"-->
+<!--        style="@style/AppSmallText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView"-->
+<!--        android:visibility="gone" />-->
 
     <TextView
         android:id="@+id/match_venue"
         style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:text="Department of animation"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/contact_person"
-        app:layout_constraintStart_toStartOf="@+id/contact_person"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

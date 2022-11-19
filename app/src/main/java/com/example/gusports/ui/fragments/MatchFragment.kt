@@ -1,97 +1,56 @@
 package com.example.gusports.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gusports.R
 import com.example.gusports.ui.adapters.MatchSectionAdapters
-import com.example.gusports.ui.models.DateMatches
-import com.example.gusports.ui.models.Matches
+import com.example.gusports.models.DateMatches
+import com.example.gusports.models.Matches
+import com.example.gusports.utils.Resource
+import com.example.gusports.viewmodels.MatchFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
+import kotlinx.android.synthetic.main.fragment_match.*
 
-
+@AndroidEntryPoint
 class MatchFragment : Fragment() {
 
     lateinit var dateMatchesRv:RecyclerView
     private val matchSectionAdapters by lazy {
         MatchSectionAdapters()
     }
-    private val dateMatches = arrayListOf<DateMatches>()
-    private val matches = arrayListOf<Matches>()
-    private val matches1 = arrayListOf<Matches>()
+    private val matchFragmentViewModel by viewModels<MatchFragmentViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
-        matches.add(
-            Matches(
-                "https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png",
-            "https://www.liverpoolfc.com/liverpoolfc_crest.png",
-            "Ttitan",
-            "Warriors",
-            "12:00 AM",
-            "Not Started",
-            "winner",
-            "",
-            "Gujarat University Ground",
-            "",
-            "7485970908"
-        ))
+    matchFragmentViewModel.matches.observe(this, Observer {
+        when(it){
+            is Resource.Loading->{
+                progressBar.visibility=View.VISIBLE
+            }
+            is Resource.Success->{
+                progressBar.visibility=View.INVISIBLE
+                matchSectionAdapters.setData(it.data)
+            }
 
-        matches.add(
-            Matches(
-                "https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png",
-                "https://www.liverpoolfc.com/liverpoolfc_crest.png",
-                "Ttitan",
-                "Warriors",
-                "12:00 AM",
-                "running",
-                "winner",
-                "",
-                "Gujarat University Ground",
-                "",
-                "7485970908"
-            ))
+            is Resource.Failure->{
+                progressBar.visibility=View.INVISIBLE
+                Toast.makeText(requireContext(),it.error,Toast.LENGTH_SHORT).show()
+            }
+        }
 
+    })
 
-        matches1.add(
-            Matches(
-                "https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png",
-                "https://www.liverpoolfc.com/liverpoolfc_crest.png",
-                "Ttitan",
-                "Warriors",
-                "12:00 AM",
-                "running",
-                "winner",
-                "",
-                "Gujarat University Ground",
-                "",
-                "7485970908"
-            ))
-
-
-        matches1.add(
-            Matches(
-                "https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png",
-                "https://www.liverpoolfc.com/liverpoolfc_crest.png",
-                "Ttitan",
-                "Warriors",
-                "12:00 AM",
-                "Not started",
-                "winner",
-                "",
-                "Gujarat University Ground",
-                "",
-                "7485970908"
-            ))
-
-        dateMatches.add(DateMatches("02/12/2022",matches))
-        dateMatches.add(DateMatches("02/12/2022",matches1))
-        dateMatches.add(DateMatches("02/12/2022",matches))
-        dateMatches.add(DateMatches("02/12/2022",matches1))
 
     }
 
@@ -110,8 +69,6 @@ class MatchFragment : Fragment() {
         val lm = LinearLayoutManager(requireContext())
         dateMatchesRv.layoutManager = lm
         dateMatchesRv.adapter = matchSectionAdapters
-
-        matchSectionAdapters.setData(dateMatches)
 
     }
 
