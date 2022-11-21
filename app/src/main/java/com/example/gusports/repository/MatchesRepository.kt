@@ -31,6 +31,7 @@ class MatchesRepository @Inject constructor(private val db: FirebaseFirestore) {
                     Resource.Success(dateMatches)
                 )
 
+
             }
             .addOnFailureListener{
                 Log.d("MAIN ERROR",it.message.toString())
@@ -38,6 +39,8 @@ class MatchesRepository @Inject constructor(private val db: FirebaseFirestore) {
                     Resource.Failure(it.localizedMessage)
                 )
             }
+
+
     }
 
 }

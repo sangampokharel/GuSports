@@ -6,7 +6,9 @@ data class Players (
     val playerContact:String,
     val playerNumber:Int,
     val playersCourse:String,
-    val PlayersYear:String
+    val PlayersYear:String,
+    val teams:String,
+    val category:String,
         ){
 
 }

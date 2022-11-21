@@ -1,5 +1,6 @@
 package com.example.gusports.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,10 +20,11 @@ class MatchFragmentViewModel @Inject constructor (private val matchesRepository:
     init {
         getMatches("cricket")
     }
-    private fun getMatches(category:String){
+     fun getMatches(category:String){
         viewModelScope.launch {
             matches.postValue(Resource.Loading)
             matchesRepository.getMatches(Contants.DATEMATCHES,category) {
+
                 matches.postValue(it)
             }
         }

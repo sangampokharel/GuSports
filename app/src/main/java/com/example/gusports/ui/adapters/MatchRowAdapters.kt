@@ -1,5 +1,7 @@
 package com.example.gusports.ui.adapters
 
+import android.service.autofill.FieldClassification.Match
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +11,8 @@ import com.example.gusports.R
 import com.example.gusports.models.Matches
 import kotlinx.android.synthetic.main.matches_item_row.view.*
 
-class MatchRowAdapters:RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
+class MatchRowAdapters(private val matches:ArrayList<Matches?>):RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
 
-    private var matches = arrayListOf<Matches?>()
     inner class MyViewHolder(view:View):RecyclerView.ViewHolder(view){
 
     }
@@ -38,9 +39,12 @@ class MatchRowAdapters:RecyclerView.Adapter<MatchRowAdapters.MyViewHolder>() {
 
     }
 
-    fun setData(matches: ArrayList<Matches?>){
-       this.matches = matches
-    }
+
+//    fun setData(matches: ArrayList<Matches?>){
+//       this.matches = matches
+//        Log.d("matches",matches.size.toString())
+//        notifyDataSetChanged()
+//    }
 
     override fun getItemCount(): Int = matches.size
 

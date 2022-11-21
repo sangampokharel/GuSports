@@ -17,6 +17,7 @@ import com.example.gusports.models.DateMatches
 import com.example.gusports.models.Matches
 import com.example.gusports.utils.Resource
 import com.example.gusports.viewmodels.MatchFragmentViewModel
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.android.synthetic.main.fragment_match.*
@@ -24,32 +25,31 @@ import kotlinx.android.synthetic.main.fragment_match.*
 @AndroidEntryPoint
 class MatchFragment : Fragment() {
 
-    lateinit var dateMatchesRv:RecyclerView
+    lateinit var dateMatchesRv: RecyclerView
     private val matchSectionAdapters by lazy {
         MatchSectionAdapters()
     }
+    var lastSelectedTab:Int = 0
     private val matchFragmentViewModel by viewModels<MatchFragmentViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        matchFragmentViewModel.matches.observe(this, Observer {
+            when (it) {
+                is Resource.Loading -> {
+                    progressBar.visibility = View.VISIBLE
+                }
+                is Resource.Success -> {
+                    progressBar.visibility = View.INVISIBLE
+                    matchSectionAdapters.setData(it.data)
+                }
 
-
-    matchFragmentViewModel.matches.observe(this, Observer {
-        when(it){
-            is Resource.Loading->{
-                progressBar.visibility=View.VISIBLE
+                is Resource.Failure -> {
+                    progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
+                }
             }
-            is Resource.Success->{
-                progressBar.visibility=View.INVISIBLE
-                matchSectionAdapters.setData(it.data)
-            }
 
-            is Resource.Failure->{
-                progressBar.visibility=View.INVISIBLE
-                Toast.makeText(requireContext(),it.error,Toast.LENGTH_SHORT).show()
-            }
-        }
-
-    })
+        })
 
 
     }
@@ -60,11 +60,28 @@ class MatchFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_match, container, false)
+        val tabLayout = view.findViewById<TabLayout>(R.id.tabLayout)
+
+        tabLayout.selectTab(tabLayout.getTabAt(lastSelectedTab))
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                matchFragmentViewModel.getMatches(tab?.text.toString().toLowerCase())
+                lastSelectedTab = tab?.position!!
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
+
         setUpAdapters(view)
         return view
     }
 
-    fun setUpAdapters(view:View){
+    private fun setUpAdapters(view: View) {
         dateMatchesRv = view.findViewById(R.id.section_matches_rv)
         val lm = LinearLayoutManager(requireContext())
         dateMatchesRv.layoutManager = lm

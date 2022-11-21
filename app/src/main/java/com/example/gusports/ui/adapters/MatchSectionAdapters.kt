@@ -14,9 +14,7 @@ import kotlinx.android.synthetic.main.match_section_item_row.view.*
 class MatchSectionAdapters:RecyclerView.Adapter<MatchSectionAdapters.MyViewHolder>() {
 
     private var dateMatches = arrayListOf<DateMatches>()
-    private val matchRowAdapters by lazy {
-        MatchRowAdapters()
-    }
+
     inner class MyViewHolder(view:View):RecyclerView.ViewHolder(view){
 
     }
@@ -30,9 +28,10 @@ class MatchSectionAdapters:RecyclerView.Adapter<MatchSectionAdapters.MyViewHolde
         val item = dateMatches[position]
         holder.itemView.match_date.text = item.date
 
+        val matchRowAdapters = MatchRowAdapters(item.matches!!)
+
         holder.itemView.section_matches_rv.adapter = matchRowAdapters
         holder.itemView.section_matches_rv.layoutManager = LinearLayoutManager(holder.itemView.context)
-        matchRowAdapters.setData(dateMatches[position].matches!!)
 
     }
 

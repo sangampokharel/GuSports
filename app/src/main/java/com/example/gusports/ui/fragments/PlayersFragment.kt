@@ -27,11 +27,11 @@ class PlayersFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem"))
-        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem"))
-        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem"))
-        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem"))
-        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem"))
+        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem","",""))
+        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem","",""))
+        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem","",""))
+        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem","",""))
+        playersList.add(Players("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_BSXPlBjoBeJruSaCamv7kQuMNjoIIWX0CITXUVoapFCbRM9g","Messi","1213131313",10,"MSC IT Mobile application","1st year 2nd sem","",""))
 
 
 //        val callback: OnBackPressedCallback =

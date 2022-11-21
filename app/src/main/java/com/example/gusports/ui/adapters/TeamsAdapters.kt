@@ -1,5 +1,6 @@
 package com.example.gusports.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,6 @@ class TeamsAdapters:RecyclerView.Adapter<TeamsAdapters.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        val item = teams[position]
-        // use glide to add image
        holder.itemName.text = item.teamName
         Glide.with(holder.itemView).load(item.teamLogo).into(holder.itemView.teams_logo)
 
@@ -38,6 +38,7 @@ class TeamsAdapters:RecyclerView.Adapter<TeamsAdapters.MyViewHolder>() {
 
     fun setData(teams:ArrayList<Team>){
         this.teams = teams
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = teams.size
