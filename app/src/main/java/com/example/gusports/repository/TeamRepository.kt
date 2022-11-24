@@ -12,9 +12,12 @@ class TeamRepository @Inject constructor(private val db:FirebaseFirestore) {
 
         val teams = arrayListOf<Team>()
 
-        db.collection(Contants.TEAMS).get().addOnSuccessListener {
+        db.collection(Contants.TEAMS)
+            .orderBy("teamName")
+            .get().addOnSuccessListener {
             for(document in it.documents){
-                document.toObject(Team::class.java)?.let { it1 -> teams.add(it1) }
+
+                document.toObject(Team::class.java)?.let { it1 ->teams.add(Team(document.id,it1.teamLogo,it1.teamName,it1.category)) }
             }
 
             result.invoke(

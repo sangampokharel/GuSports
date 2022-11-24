@@ -13,13 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gusports.R
 import com.example.gusports.ui.adapters.MatchSectionAdapters
-import com.example.gusports.models.DateMatches
-import com.example.gusports.models.Matches
 import com.example.gusports.utils.Resource
 import com.example.gusports.viewmodels.MatchFragmentViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.android.synthetic.main.fragment_match.*
 
 @AndroidEntryPoint
@@ -40,12 +37,14 @@ class MatchFragment : Fragment() {
                 }
                 is Resource.Success -> {
                     progressBar.visibility = View.INVISIBLE
-                    matchSectionAdapters.setData(it.data)
+                    val data = it.data.reversed()
+                     matchSectionAdapters.setData(data)
                 }
 
                 is Resource.Failure -> {
                     progressBar.visibility = View.INVISIBLE
-                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), it.error, Toast.LENGTH_SHORT).show()
+
                 }
             }
 

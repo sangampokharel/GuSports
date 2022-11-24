@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_gray_100"
-    tools:context=".ui.fragments.PlayersFragment">
+    tools:context=".ui.activities.PlayersActivity">
 
 
     <TextView
@@ -24,6 +24,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
+        app:tint="@color/blue_gray_700"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +38,20 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ProgressBar
+        android:id="@+id/players_progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/players_rv"
+        app:layout_constraintStart_toStartOf="@+id/players_rv"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

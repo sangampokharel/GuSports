@@ -25,13 +25,14 @@ class PlayersAdapters:RecyclerView.Adapter<PlayersAdapters.MyViewHolder>() {
        val item = players[position]
         holder.itemView.players_name.text = item.playerFullName
         holder.itemView.players_contact.text = item.playerContact
-        holder.itemView.players_course.text = item.playersCourse
+        holder.itemView.players_course.text = item.playersEmail
         holder.itemView.players_number.text = "Jersey Number: ${item.playerNumber}"
         Glide.with(holder.itemView).load(item.playerImageUrl).into(holder.itemView.players_img_url)
     }
 
     fun setData(players:ArrayList<Players>){
         this.players = players
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = players.size

@@ -10,7 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+//        gradlePluginPortal()
+
     }
 }
+
+
 rootProject.name = "GUsports"
 include ':app'

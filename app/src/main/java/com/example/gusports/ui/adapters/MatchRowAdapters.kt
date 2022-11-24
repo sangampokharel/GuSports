@@ -29,8 +29,8 @@ class MatchRowAdapters(private val matches:ArrayList<Matches?>):RecyclerView.Ada
         holder.itemView.contact_person.text = item.gameStatus
 //        holder.itemView.home_winner_status.text = item.homeWinner
 //        holder.itemView.away_winner_status.text = item.awayWinner
-        holder.itemView.match_venue.text = "${item.venue},${item.contact} "
-        holder.itemView.match_time.text = item.time
+        holder.itemView.match_venue.text = "${item.venue}"
+//        holder.itemView.match_time.text = item.time
 
         Glide.with(holder.itemView).load(item.homeTeamLogo).into(holder.itemView.home_team_logo)
         Glide.with(holder.itemView).load(item.awayTeamLogo).into(holder.itemView.away_team_logo)

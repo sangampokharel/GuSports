@@ -11,9 +11,15 @@
         android:title="Teams"
         />
 
+    <item android:id="@id/sponsorFragment"
+        android:icon="@drawable/ic_sponshors"
+        android:title="Sponsors"
+        />
     <item android:id="@id/rulesFragment"
         android:icon="@drawable/ic_rules"
         android:title="Rules"
         />
+
+
 
 </menu>

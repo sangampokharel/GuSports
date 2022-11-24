@@ -1,5 +1,6 @@
 package com.example.gusports.ui.adapters
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gusports.R
 import com.example.gusports.models.Team
+import com.example.gusports.ui.activities.PlayersActivity
 import kotlinx.android.synthetic.main.teams_item_row.view.*
 
 class TeamsAdapters:RecyclerView.Adapter<TeamsAdapters.MyViewHolder>() {
@@ -30,7 +32,10 @@ class TeamsAdapters:RecyclerView.Adapter<TeamsAdapters.MyViewHolder>() {
         Glide.with(holder.itemView).load(item.teamLogo).into(holder.itemView.teams_logo)
 
         holder.itemView.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.playersFragment)
+            val i = Intent(holder.itemView.context,PlayersActivity::class.java)
+            i.putExtra("category",item.category)
+            i.putExtra("teamid",item.teamId)
+            holder.itemView.context.startActivity(i)
         }
 
 

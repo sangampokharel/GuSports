@@ -4,29 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_gray_100"
-    tools:context=".ui.SplashActivity">
+    android:background="@color/white"
+    tools:context=".ui.activities.SplashActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@drawable/gulogo" />
 
     <TextView
         android:id="@+id/textView5"
+        style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="Winter Sports - 2021/2022"
-        style="@style/AppMediumText"
         android:textColor="@color/blue_gray_700"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/AppMediumText"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:text="Department of Animation, IT-IMS \n Mobile App"
+        android:textAlignment="center"
+        android:textColor="@color/blue_gray_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

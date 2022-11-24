@@ -12,6 +12,7 @@ class MatchesRepository @Inject constructor(private val db: FirebaseFirestore) {
          val dateMatches = arrayListOf<DateMatches>()
         db.collection(collection)
             .whereEqualTo("category",category)
+
             .get()
             .addOnSuccessListener {
                    for(document in it.documents){
