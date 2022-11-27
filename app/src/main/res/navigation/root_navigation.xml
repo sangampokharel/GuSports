@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/sponsorFragment"
-        android:name="com.example.gusports.SponsorFragment"
+        android:name="com.example.gusports.ui.fragments.SponsorFragment"
         android:label="fragment_sponsor"
         tools:layout="@layout/fragment_sponsor" />
 </navigation>

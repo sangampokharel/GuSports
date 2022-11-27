@@ -23,11 +23,22 @@ class PlayersAdapters:RecyclerView.Adapter<PlayersAdapters.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: PlayersAdapters.MyViewHolder, position: Int) {
        val item = players[position]
-        holder.itemView.players_name.text = item.playerFullName
-        holder.itemView.players_contact.text = item.playerContact
-        holder.itemView.players_course.text = item.playersEmail
-        holder.itemView.players_number.text = "Jersey Number: ${item.playerNumber}"
-        Glide.with(holder.itemView).load(item.playerImageUrl).into(holder.itemView.players_img_url)
+        holder.itemView.players_name.text = item.playerFullName!!.toLowerCase().capitalize()?:"~"
+//       if (item.playerContact!! > 0) {
+//           holder.itemView.players_contact.text =item.playerContact.toString()
+//
+//       } else {
+//           holder.itemView.players_contact.text =""
+//       }
+        holder.itemView.players_course.text = item.playersEmail!!?:"~"
+
+        if(item.playerImageUrl!!.trim().isEmpty()){
+            Glide.with(holder.itemView).load("https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=100&t=st=1669301535~exp=1669302135~hmac=6ccb834d5bc126337397d154fdc9811e9cbcda251c500abde222712fc9df6c13").into(holder.itemView.players_img_url)
+
+        }else{
+            Glide.with(holder.itemView).load(item.playerImageUrl).into(holder.itemView.players_img_url)
+
+        }
     }
 
     fun setData(players:ArrayList<Players>){

@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginTop="0dp"
     android:layout_marginEnd="10dp"
     android:layout_marginBottom="10dp"
-    android:background="@color/white"
+    android:background="@drawable/corner_radius_style"
     android:elevation="8dp">
 
     <ImageView
@@ -17,7 +18,7 @@
         android:layout_height="25dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/home_team_name"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/vs_id"
         app:layout_constraintTop_toTopOf="@+id/home_team_name"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -27,12 +28,12 @@
         android:layout_height="25dp"
         android:layout_marginStart="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/away_team_name"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/vs_id"
         app:layout_constraintTop_toTopOf="@+id/away_team_name"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/vs_id"
         style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:text="Titan"
+        android:maxLines="3"
         android:textAlignment="textEnd"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,6 +82,8 @@
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:text="Warriors"
+        android:maxLines="3"
+        android:textAlignment="textStart"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,41 +96,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="running"
+        android:text=""
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/match_venue"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4" />
+        app:layout_constraintEnd_toEndOf="@+id/vs_id"
+        app:layout_constraintStart_toStartOf="@+id/vs_id" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/home_winner_status"-->
-    <!--        style="@style/AppSmallText"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="TextView"-->
-    <!--        android:visibility="gone"-->
-    <!--        tools:layout_editor_absoluteX="40dp"-->
-    <!--        tools:layout_editor_absoluteY="122dp" />-->
+    <TextView
+        android:id="@+id/home_winner_status"
+        style="@style/AppSmallText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/blue_gray_700"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/home_team_name"
+        app:layout_constraintEnd_toEndOf="@+id/home_team_name"
+        app:layout_constraintStart_toStartOf="@+id/home_team_name" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/away_winner_status"-->
-    <!--        style="@style/AppSmallText"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="TextView"-->
-    <!--        android:visibility="gone" />-->
+    <TextView
+        android:id="@+id/away_winner_status"
+        style="@style/AppSmallText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Winner"
+         android:textColor="@color/blue_gray_700"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/away_team_name"
+        app:layout_constraintEnd_toEndOf="@+id/away_team_name"
+        app:layout_constraintStart_toStartOf="@+id/away_team_name" />
 
     <TextView
         android:id="@+id/match_venue"
         style="@style/AppSmallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="Department of animation"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vs_id" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,27 +24,36 @@ class MatchRowAdapters(private val matches:ArrayList<Matches?>):RecyclerView.Ada
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = matches[position]!!
-        holder.itemView.home_team_name.text = item.homeTeamName
-        holder.itemView.away_team_name.text = item.awayTeamName
-        holder.itemView.contact_person.text = item.gameStatus
-//        holder.itemView.home_winner_status.text = item.homeWinner
-//        holder.itemView.away_winner_status.text = item.awayWinner
-        holder.itemView.match_venue.text = "${item.venue}"
-//        holder.itemView.match_time.text = item.time
 
-        Glide.with(holder.itemView).load(item.homeTeamLogo).into(holder.itemView.home_team_logo)
-        Glide.with(holder.itemView).load(item.awayTeamLogo).into(holder.itemView.away_team_logo)
+        if(item.category == "running"){
+            holder.itemView.vs_id.text = "~"
+        }
+        holder.itemView.home_team_name.text = item.homeTeamName!!.toLowerCase().capitalize()
+        holder.itemView.away_team_name.text = item.awayTeamName!!.toLowerCase().capitalize()
+        //holder.itemView.contact_person.text = item.gameStatus
+        holder.itemView.home_winner_status.text = item.homeWinner
+        holder.itemView.away_winner_status.text = item.awayWinner
+        holder.itemView.match_venue.text = "${item.venue}"
+
+        if(item.homeTeamLogo!=null){
+            Glide.with(holder.itemView).load(item.homeTeamLogo).placeholder(R.color.blue_gray_100).into(holder.itemView.home_team_logo)
+
+        }else{
+            holder.itemView.home_team_logo.visibility = View.GONE
+        }
+
+        if(item.awayTeamLogo!=null){
+            Glide.with(holder.itemView).load(item.awayTeamLogo).placeholder(R.color.blue_gray_100).into(holder.itemView.away_team_logo)
+
+        }else{
+            holder.itemView.away_team_logo.visibility = View.GONE
+        }
 
 
 
     }
 
 
-//    fun setData(matches: ArrayList<Matches?>){
-//       this.matches = matches
-//        Log.d("matches",matches.size.toString())
-//        notifyDataSetChanged()
-//    }
 
     override fun getItemCount(): Int = matches.size
 

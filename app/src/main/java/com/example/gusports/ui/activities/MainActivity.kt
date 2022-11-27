@@ -17,6 +17,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.gusports.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.fragmentContainerView)
         val navView: BottomNavigationView = bottomNavigationView
         navView.setupWithNavController(navController)
+        
+        Firebase.messaging.subscribeToTopic("GUSPORTSAPP")
 
         if(checkForInternet(this)){
  }else{

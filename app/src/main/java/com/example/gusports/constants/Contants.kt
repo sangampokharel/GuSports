@@ -6,6 +6,7 @@ class Contants {
          const val TEAMS="teams"
         const val RULES = "rules"
         const val PLAYERS="players"
+        const val SPONSORS = "sponsors"
 
     }
 }
